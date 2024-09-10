@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -119,7 +116,37 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if(someJobs.size()==0){
+            System.out.print("No Results");
+            return;
+        }
+        HashMap<String , String> jobbers = new HashMap<>();
+        //int numberOfJobs = someJobs.size();
+        for (int x = 0; x<someJobs.size();x++) {
+            jobbers = someJobs.get(x);
+            //System.out.println(jobbers.keySet());
+            //System.out.println(jobbers.values());
+            System.out.println("\n*****");
+            for(Map.Entry<String ,String> job:jobbers.entrySet() ){
+                System.out.println(job.getKey() + ": "+job.getValue());
+            }
+            System.out.println("*****");
 
-        System.out.println("printJobs is not implemented yet");
+        }
+
+        /*for (int x = 0; x<someJobs.size();x++){
+            job = someJobs.get(x);
+            System.out.println(job.keySet()  + job.values() );
+            System.out.println(job.values());
+            System.out.println("*****");
+            System.out.println("position type: " );
+            System.out.println("name: ");
+            System.out.println("employer: ");
+            System.out.println("location: ");
+            System.out.println("core compentecy: ");
+            System.out.println("*****");
+            System.out.println(job.values());
+        }
+        System.out.println(someJobs.size());*/
     }
 }

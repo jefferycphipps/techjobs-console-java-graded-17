@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -70,12 +67,11 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
+        String lowerValue = value.toLowerCase();
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
-
-            if (aValue.contains(value)) {
+            String aValue = row.get(column).toLowerCase();
+            if (aValue.contains(lowerValue)) {
                 jobs.add(row);
             }
         }
@@ -93,9 +89,29 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
+        String lowercaseValue = value.toLowerCase();
         // TODO - implement this method
-        return null;
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        HashMap<String , String> jobbers = new HashMap<>();
+        for (int x = 0; x<allJobs.size();x++) {
+            jobbers = allJobs.get(x);
+            String[] values = new String[jobbers.size()];
+            values = jobbers.values().toArray(new String[0]);
+            for(int y = 0; y<=value.length();y++){
+                String word = values[y].toLowerCase();
+                if(word.contains(lowercaseValue)){
+                    jobs.add(jobbers);
+                }else
+                    continue;
+            }
+            //if(jobbers.containsValue(value)){//its in here. Right now it is an exact match.
+                //TODO get each value as a string. convert to lower and see if its in there then add the job
+            //    jobs.add(jobbers);
+           // }else
+            //    continue;
+        }
+        return jobs;
     }
 
     /**
