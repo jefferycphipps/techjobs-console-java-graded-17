@@ -135,19 +135,6 @@ public class TechJobs {
 
         }
 
-        /*for (int x = 0; x<someJobs.size();x++){
-            job = someJobs.get(x);
-            System.out.println(job.keySet()  + job.values() );
-            System.out.println(job.values());
-            System.out.println("*****");
-            System.out.println("position type: " );
-            System.out.println("name: ");
-            System.out.println("employer: ");
-            System.out.println("location: ");
-            System.out.println("core compentecy: ");
-            System.out.println("*****");
-            System.out.println(job.values());
-        }
-        System.out.println(someJobs.size());*/
+
     }
 }
